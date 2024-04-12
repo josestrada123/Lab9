@@ -14,6 +14,21 @@ def encoder(num):
             encoded_list.append(str(int(item)+3))
     return "".join(encoded_list)
 
+def decoder(num):
+    num = list(num)
+    decoded_list = []
+    for i in num:
+        if i == "0":
+            decoded_list.append("7")
+        elif i == "1":
+            decoded_list.append("8")
+        elif i == "2":
+            decoded_list.append("9")
+        else:
+            decoded_list.append(str(int(i)-3))
+    return "".join(decoded_list)
+
+
 if __name__ == '__main__':
     encoded = ""
     while True:
@@ -28,7 +43,7 @@ if __name__ == '__main__':
             encoded = encoder(password)
             print("Your password has been encoded and stored!")
         elif option == "2":
-            pass
+            print(f"The encoded password is {encoded}, and the original password is {decoder(encoded)}.")
         elif option =="3":
             break
 
